@@ -1,25 +1,27 @@
 package Start;
 
+/**
+ * @author Globus
+ * @created 18.02.2021
+ */
+
 import org.apache.poi.xssf.usermodel.XSSFWorkbook;
 import org.apache.poi.ss.usermodel.Cell;
-import org.apache.poi.ss.usermodel.CellType;
 import org.apache.poi.ss.usermodel.Row;
 import org.apache.poi.ss.usermodel.Sheet;
-import org.apache.poi.xssf.usermodel.XSSFWorkbook;
-
-import java.awt.font.NumericShaper;
 import java.io.FileInputStream;
 import java.io.IOException;
 import java.io.InputStream;
 import java.util.Iterator;
 
-public class Parser {
+public class Parser extends WorkBasa{
 
-    public static String parse(String name) {
+    public static void Parse(String name) throws IOException {
 
-        String result = "";
         InputStream in = null;
         XSSFWorkbook wb = null;
+        int sod, zna4;
+
         try {
             in = new FileInputStream(name);
             wb = new XSSFWorkbook(in);
@@ -29,26 +31,23 @@ public class Parser {
 
         Sheet sheet = wb.getSheetAt(1);
         Iterator<Row> it = sheet.iterator();
+
         while (it.hasNext()) {
             Row row = it.next();
             Iterator<Cell> cells = row.iterator();
             while (cells.hasNext()) {
-                Cell cell = cells.next();
-                System.out.println(cell);
+               double cell = cells.next().getNumericCellValue();
+               sod=(int)cell;
+            //   System.out.println(sod);
 
-                //  result += "[" + cell.getNumericCellValue() + "]";
-//                result +=
-//                        cell.getStringCellValue();
-
-
-
+               BazaLoad.add(sod);
+               zna4=Baza.get(sod)+1;
+               Baza.put(sod,zna4);
                 }
             }
-            result += "\n";
 
-
-        return result;
-    }
+            wb.close();
+      }
 
 }
 
