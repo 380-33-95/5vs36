@@ -6,9 +6,9 @@
         <sourceOutputDir name="target/generated-sources/annotations" />
         <sourceTestOutputDir name="target/generated-test-sources/test-annotations" />
         <outputRelativeToContentRoot value="true" />
-        <module name="5vs36" />
+        <module name="5vs36.1" />
+        <module name="5vs36.2" />
       </profile>
     </annotationProcessing>
-    <bytecodeTargetLevel target="8" />
   </component>
 </project>

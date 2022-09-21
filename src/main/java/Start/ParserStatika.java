@@ -30,7 +30,7 @@ public class ParserStatika extends WorkBasa {
             e.printStackTrace();
         }
 
-        Sheet sheet = wb.getSheetAt(2);
+        Sheet sheet = wb.getSheetAt(0);
 
         Iterator<Row> it = sheet.iterator();
 
@@ -44,13 +44,16 @@ public class ParserStatika extends WorkBasa {
                 double cell = cells.next().getNumericCellValue();
                 sod=(int)cell;
 
-                //   System.out.print("<"+sod+">");
+                  System.out.print("<"+sod+">");
+                    if(sod>0){
+                        MassivEntry[nr][nb]=Baza.get(sod);
+                        System.out.print(" <"+MassivEntry[nr] [nb]+"> ");
+                        nb++;
+                    }
 
-                   MassivEntry[nr][nb]=Baza.get(sod);
-                System.out.print(" <"+MassivEntry[nr] [nb]+"> ");
-                   nb++;
 
-                   if (nb>4 && nr<20){
+
+                   if (nb>5 && nr<1740){
 
                        ss=
 
@@ -58,9 +61,18 @@ public class ParserStatika extends WorkBasa {
                        MassivEntry[nr] [nb-2]+
                        MassivEntry[nr] [nb-3]+
                        MassivEntry[nr] [nb-4]+
-                       MassivEntry[nr] [nb-5];
+                       MassivEntry[nr] [nb-5]+
+                       MassivEntry[nr][nb-6];
 
-                       System.out.print("["+ss+"]");
+                       MassivEntry[nr][nb+1]=ss/6;
+
+                   //    nr>0?System.out.print("["+ss+"]"+MassivEntry[nr-1][nb+1]):System.out.print("["+ss+"]");
+                       if (nr>0){
+                           System.out.print("["+ss+"] "+ss/6+" / "+((ss/6)-MassivEntry[nr-1][nb+1]));
+                       }
+                       else System.out.print("["+ss+"]");
+
+
 
                        nr++;
                        nb=0;

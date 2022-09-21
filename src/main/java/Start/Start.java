@@ -9,19 +9,16 @@ import java.io.IOException;
 
 public class Start {
 
-
+    static String name="E://5vs36.2//src//main//resources//results.xlsx";
 
     public static void main (String [] args) throws IOException {
 
-     WorkBasa.InitialRazmerBaza();
-     Parser.Parse("G://5vs36//src//main//resources//results.xlsx");
-     WorkBasa.SortedBaza();
+Parser.Parse(name);
 
-        ParserStatika.ParseStatik("G://5vs36//src//main//resources//results.xlsx");
+// WorkBasa.SortedBaza2();
 
-   //     WorkBasa.Udalenie();
+ //       ParserStatika.ParseStatik(name);
 
-   //     WorkBasa.SortedBaza2();
 
 
 
