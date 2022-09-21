@@ -22,7 +22,7 @@ public class Parser extends WorkBasa{
 
         InputStream in = null;
         XSSFWorkbook wb = null;
-        int sod, zna4;
+        int sod, zna4 = 0;
         int iter=0;
 
         int sz=0;
@@ -47,26 +47,35 @@ public class Parser extends WorkBasa{
                sod=(int)cell;
 
             //    System.out.println("->"+sod);
-
+                iter++;
                 if(sod>0){
-                    iter++;
+
                     BazaLoad.add(sod);
                     zna4=Baza.get(sod)+1;
                     Baza.put(sod,zna4);
 
-                   Shag1.step1(sod);
+//                   Shag1.step1(sod);
+
+                    if (iter<=6){
+                        sz+=Baza.get(sod);
+                        System.out.print(Baza.get(sod)+" ");
+                    }
+                    else {
+                        System.out.println("="+sz);
+                        sz=0;
+                        iter=0;
+                    }
+
+
+               //     SummaVerojatnostej.summBox(zna4);
 
                 }
 
-
-
-
-
-//                if(iter>=5){
+//                if(iter>=5)
+//                {
 //                    iter=0;
 ////                    outputBaza();
-//
-//                    WriteExel.SortedBaza();
+////                    WriteExel.SortedBaza();
 ////                    WriteExel.writeCell();
 //                }
 
@@ -74,9 +83,9 @@ public class Parser extends WorkBasa{
             }
 
             wb.close();
-        Shag1.pr1();
-        outputBaza();
-        SortedBaza();
+//        Shag1.pr1();
+//        outputBaza();
+//        SortedBaza();
       }
 
       public static void outputBaza(){

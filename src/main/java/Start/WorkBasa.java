@@ -16,7 +16,11 @@ public class WorkBasa {
     public static List <Integer> BazaLoad = new ArrayList<>();//zagruzka
     public static int [][]BazaMassiv = new int [2][36];// 1-snachenie  2-statistika
     public static int [][] MassivEntry = new int [1740][10];//perevod v statiku: 0-4 statika, 5 summa statiki
+
     public static int [][] BazaOut = new int [2] [36]; // result baza
+
+    public static List<Integer> Sito1 = new ArrayList<>();//текущий тираж по частоте
+
 
     public static void InitialRazmerBaza()
     {
@@ -104,15 +108,15 @@ public class WorkBasa {
             System.out.println(a+1 +") "+BazaMassiv[0][a]+"-->"+BazaMassiv[1][a]);
 
         }
-        if (Baza.size()>=5) {
-            for (int yu = 0; yu <= 4; yu++) {
-                System.out.printf("out to 5: key= %d ~ %d %n",
-                        BazaMassiv[0][yu], BazaMassiv[1][yu]);
-            }
-        }
-        else{
-            System.out.println("end");
-        }
+//        if (Baza.size()>=5) {
+//            for (int yu = 0; yu <= 4; yu++) {
+//                System.out.printf("out to 5: key= %d ~ %d %n",
+//                        BazaMassiv[0][yu], BazaMassiv[1][yu]);
+//            }
+//        }
+//        else{
+//            System.out.println("end");
+//        }
 
     }
 
